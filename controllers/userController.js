@@ -55,4 +55,16 @@ const deleteUser = (req, res) => {
   });
 };
 
-export { addUser, updateUser, deleteUser };
+const retrieveData = (req, res) => {
+  const selectQuery = "SELECT * FROM users";
+
+  db.execute(selectQuery, (err, result) => {
+    if (err) {
+      console.log(err.message);
+      res.status(500).send(err.message);
+    }
+    res.status(200).send(result);
+  });
+};
+
+export { addUser, updateUser, deleteUser, retrieveData };
