@@ -1,3 +1,5 @@
+import User from "../model/user.js";
+
 const adduser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
